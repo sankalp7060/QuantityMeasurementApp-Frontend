@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Quantity Measurement</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="background">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+        </div>
+
+        <div class="card register-card">
+            <div class="logo">
+                <div class="logo-box">
+                    <span class="logo-text">QM</span>
+                </div>
+                <h1 class="title">Create Account</h1>
+                <p class="subtitle">Join the future of measurement technology</p>
+            </div>
+
+            <div id="errorAlert" class="alert alert-error hidden"></div>
+
+            <form id="registerForm">
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group">
+                            <label class="label">First Name</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">👤</span>
+                                <input type="text" id="firstName" class="input" placeholder="John" required>
+                            </div>
+                            <div class="error-message" id="firstNameError"></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <label class="label">Last Name</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">👤</span>
+                                <input type="text" id="lastName" class="input" placeholder="Doe" required>
+                            </div>
+                            <div class="error-message" id="lastNameError"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="label">Username</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">@</span>
+                        <input type="text" id="username" class="input" placeholder="johndoe" required>
+                    </div>
+                    <div class="error-message" id="usernameError"></div>
+                </div>
+
+                <div class="input-group">
+                    <label class="label">Email Address</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input type="email" id="email" class="input" placeholder="john@example.com" required>
+                    </div>
+                    <div class="error-message" id="emailError"></div>
+                </div>
+
+                <div class="input-group">
+                    <label class="label">Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="password" class="input" placeholder="Create strong password" required>
+                        <button type="button" class="eye-button" id="togglePassword">👁️</button>
+                    </div>
+                    <div class="strength-container hidden" id="strengthContainer">
+                        <div class="strength-labels">
+                            <span>Password strength</span>
+                            <span id="strengthPercent">0%</span>
+                        </div>
+                        <div class="strength-bar">
+                            <div class="strength-fill" id="strengthFill"></div>
+                        </div>
+                    </div>
+                    <div class="error-message" id="passwordError"></div>
+                </div>
+
+                <div class="input-group">
+                    <label class="label">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="confirmPassword" class="input" placeholder="Confirm your password" required>
+                        <button type="button" class="eye-button" id="toggleConfirmPassword">👁️</button>
+                    </div>
+                    <div class="error-message" id="confirmPasswordError"></div>
+                    <div id="matchMessage" class="success-message hidden"></div>
+                </div>
+
+                <button type="submit" class="btn-primary btn-full" id="registerBtn">
+                    <span class="btn-text">Create Account</span>
+                    <span class="loader hidden"></span>
+                </button>
+            </form>
+
+            <p class="signin-text">
+                Already have an account? 
+                <a href="/login.html" class="signin-link">Sign in</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>

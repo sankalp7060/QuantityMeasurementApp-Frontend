@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Quantity Measurement</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <div class="header-content">
+            <div class="header-left"></div>
+            <h1 class="header-title">
+                <span class="header-icon">→</span>
+                Welcome To Quantity Measurement
+            </h1>
+            <div class="user-info">
+                <span class="user-name" id="userName"></span>
+                <button class="logout-btn" id="logoutBtn">
+                    <span>🚪</span> Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-main">
+        <!-- Type Selector -->
+        <div class="section">
+            <h2 class="section-title">CHOOSE TYPE</h2>
+            <div class="button-grid-4" id="typeButtons">
+                <button data-type="Length" class="type-btn">📏 Length</button>
+                <button data-type="Weight" class="type-btn">⚖️ Weight</button>
+                <button data-type="Temperature" class="type-btn">🌡️ Temperature</button>
+                <button data-type="Volume" class="type-btn">🧪 Volume</button>
+            </div>
+        </div>
+
+        <!-- Action Selector -->
+        <div class="section">
+            <h2 class="section-title">CHOOSE ACTION</h2>
+            <div class="button-grid-3" id="actionButtons">
+                <button data-action="Comparison" class="action-btn">≈ Comparison</button>
+                <button data-action="Conversion" class="action-btn">→ Conversion</button>
+                <button data-action="Arithmetic" class="action-btn">+ Arithmetic</button>
+            </div>
+        </div>
+
+        <!-- Arithmetic Operation Selector -->
+        <div class="section hidden" id="arithmeticSection">
+            <h3 class="section-subtitle">CHOOSE OPERATION</h3>
+            <div class="button-group">
+                <button data-op="Add" class="op-btn">+</button>
+                <button data-op="Subtract" class="op-btn">-</button>
+                <button data-op="Divide" class="op-btn">÷</button>
+            </div>
+        </div>
+
+        <!-- Error Alert -->
+        <div id="errorAlert" class="alert alert-error hidden"></div>
+
+        <!-- Conversion Layout -->
+        <div id="conversionLayout" class="conversion-card hidden">
+            <div class="row-2">
+                <div>
+                    <label class="input-label">From</label>
+                    <select id="fromUnit" class="select"></select>
+                </div>
+                <div>
+                    <label class="input-label">To</label>
+                    <select id="toUnit" class="select"></select>
+                </div>
+            </div>
+            <div>
+                <label class="input-label">Value</label>
+                <div class="value-input-wrapper">
+                    <input type="number" id="fromValue" class="value-input" placeholder="Enter value to convert" step="any">
+                    <span class="value-unit" id="valueUnit">feet</span>
+                </div>
+            </div>
+            <div class="arrow-container">
+                <div class="arrow-icon">→</div>
+            </div>
+        </div>
+
+        <!-- Comparison Layout -->
+        <div id="comparisonLayout" class="comparison-card hidden">
+            <div class="row-3">
+                <div class="comparison-col">
+                    <label class="input-label">VALUE 1</label>
+                    <input type="number" id="value1" class="number-input" placeholder="Enter value" step="any">
+                    <select id="unit1" class="select"></select>
+                </div>
+                <div class="comparison-center">
+                    <div class="comparison-symbol">≈</div>
+                </div>
+                <div class="comparison-col">
+                    <label class="input-label">VALUE 2</label>
+                    <input type="number" id="value2" class="number-input" placeholder="Enter value" step="any">
+                    <select id="unit2" class="select"></select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Arithmetic Layout -->
+        <div id="arithmeticLayout" class="comparison-card hidden">
+            <div class="row-3">
+                <div class="comparison-col">
+                    <label class="input-label">VALUE 1</label>
+                    <input type="number" id="arithValue1" class="number-input" placeholder="Enter value" step="any">
+                    <select id="arithUnit1" class="select"></select>
+                </div>
+                <div class="comparison-center">
+                    <div class="comparison-symbol" id="operationSymbol">+</div>
+                </div>
+                <div class="comparison-col">
+                    <label class="input-label">VALUE 2</label>
+                    <input type="number" id="arithValue2" class="number-input" placeholder="Enter value" step="any">
+                    <select id="arithUnit2" class="select"></select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Temperature Warning -->
+        <div id="tempWarning" class="warning-box hidden">
+            <span class="warning-icon">⚠️</span>
+            <p class="warning-text">Arithmetic operations are not supported for Temperature. Please select Comparison or Conversion.</p>
+        </div>
+
+        <!-- Perform Button -->
+        <div class="button-container">
+            <button id="performBtn" class="btn-primary">Perform Operation</button>
+        </div>
+
+        <!-- Result Section -->
+        <div id="resultSection" class="result-card hidden">
+            <h3 class="result-title">RESULT</h3>
+            <div class="result-grid">
+                <div class="result-value">
+                    <span class="result-number" id="resultValue"></span>
+                </div>
+                <div class="result-unit" id="resultUnit"></div>
+            </div>
+            <div id="formattedResult" class="formatted-result hidden"></div>
+            <div class="new-button-container">
+                <button id="newOperationBtn" class="btn-secondary">⟳ New Operation</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
