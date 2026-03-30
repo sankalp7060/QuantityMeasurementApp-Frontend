@@ -40,6 +40,7 @@ function App() {
         <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
         <Route path="/auth/callback" element={<AuthCallback />} />
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+        <Route path="/auth/callback" element={<AuthCallback />} />
       </Routes>
     </Router>
   );
