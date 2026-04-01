@@ -67,7 +67,8 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:5000/api/v1/Auth/google/login';
+    const baseUrl = process.env.REACT_APP_API_URL || 'https://quantitymeasurementapp-k223.onrender.com/api/v1';
+    window.location.href = `${baseUrl}/Auth/google/login`;
   };
 
   if (loading) return <Loader fullScreen />;

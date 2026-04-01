@@ -166,8 +166,9 @@ const Dashboard = () => {
     } catch (err) {
       console.error('Operation error:', err);
       if (err.code === 'ERR_NETWORK' || err.message === 'Network Error') {
+        const backendUrl = process.env.REACT_APP_API_URL || 'https://quantitymeasurementapp-k223.onrender.com';
         setError(
-          'Cannot connect to backend server. Please make sure the backend is running on http://localhost:5000'
+          `Cannot connect to backend server. Please make sure the backend is running on ${backendUrl}`
         );
       } else {
         setError(err.response?.data?.message || err.message || 'Operation failed');
